@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;       // скорость ходьбы
-    public float jumpHeight = 1.5f;    // высота прыжка
-    public float gravity = -9.81f;     // сила гравитации
+    public float moveSpeed = 5f;       // Г±ГЄГ®Г°Г®Г±ГІГј ГµГ®Г¤ГјГЎГ»
+    public float jumpHeight = 1.5f;    // ГўГ»Г±Г®ГІГ  ГЇГ°Г»Г¦ГЄГ 
+    public float gravity = -9.81f;     // Г±ГЁГ«Г  ГЈГ°Г ГўГЁГІГ Г¶ГЁГЁ
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // проверка, стоит ли игрок на земле
+        // ГЇГ°Г®ГўГҐГ°ГЄГ , Г±ГІГ®ГЁГІ Г«ГЁ ГЁГЈГ°Г®ГЄ Г­Г  Г§ГҐГ¬Г«ГҐ
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // прижимаем к земле
+            velocity.y = -2f; // ГЇГ°ГЁГ¦ГЁГ¬Г ГҐГ¬ ГЄ Г§ГҐГ¬Г«ГҐ
         }
 
         
@@ -37,9 +37,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        // гравитация
+        // ГЈГ°Г ГўГЁГІГ Г¶ГЁГї
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 }
+
+
 
